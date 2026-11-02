@@ -1,0 +1,17 @@
+name: macOS validation
+on: [push, pull_request]
+jobs:
+  core-and-app:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Swift toolchain
+        run: swift --version
+      - name: Module boundaries
+        run: python3 scripts/check-architecture.py
+      - name: Localization catalogs
+        run: python3 scripts/check-localizations.py
+      - name: Core tests
+        run: swift test --package-path Packages/FormaKit
+      - name: Build native app
+        run: ./scripts/build.sh Release

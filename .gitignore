@@ -1,0 +1,22 @@
+# Local and generated files (project-continuity)
+.agents/
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.*.example
+!.env.*.sample
+
+# Swift / Xcode
+.build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.swiftpm/
+*.dSYM/
+*.p12
+*.mobileprovision
+# Local development app; release artifacts are explicitly packaged later.
+deploy/build/
